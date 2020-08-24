@@ -157,6 +157,8 @@ class App extends Component {
                 <button onClick={() => alertNodeInfo(rowInfo)}>i</button>,
               ],
             })}
+            rowHeight={40}
+            scaffoldBlockPxWidth={25}
           />
         </div>
       </div>

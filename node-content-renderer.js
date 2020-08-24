@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styles from './node-content-renderer.scss';
+import ArrowRightIcon from '@material-ui/icons/ArrowRight';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import DragIndicatorIcon from '@material-ui/icons/DragIndicator';
 
 function isDescendant(older, younger) {
   return (
@@ -67,12 +70,14 @@ class CustomThemeNodeContentRenderer extends Component {
           ...style,
         }}
       >
+        <DragIndicatorIcon fontSize='small' color='disabled'/>
         <div
           className={
             styles.rowContents +
             (!canDrag ? ` ${styles.rowContentsDragDisabled}` : '')
           }
         >
+
           <div className={styles.rowLabel}>
             <span
               className={
@@ -136,15 +141,16 @@ class CustomThemeNodeContentRenderer extends Component {
                     treeIndex,
                   })
                 }
-              />
-
-              {node.expanded &&
-                !isDragging && (
-                  <div
-                    style={{ width: scaffoldBlockPxWidth }}
-                    className={styles.lineChildren}
-                  />
-                )}
+              
+              >
+                {
+                  (node.expanded) ? (
+                    <ArrowDropDownIcon className={styles.btnIcon} color='disabled'/>
+                  ) : (
+                    <ArrowRightIcon className={styles.btnIcon} color='disabled'/>
+                  )
+                }
+              </button>
             </div>
           )}
 
