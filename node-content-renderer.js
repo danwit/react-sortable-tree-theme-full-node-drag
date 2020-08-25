@@ -47,6 +47,7 @@ class CustomThemeNodeContentRenderer extends Component {
       treeId, // Not needed, but preserved for other renderers
       isOver, // Not needed, but preserved for other renderers
       parentNode, // Needed for dndManager
+      rowDirection,
       ...otherProps
     } = this.props;
     const nodeTitle = title || node.title;
@@ -205,6 +206,7 @@ CustomThemeNodeContentRenderer.propTypes = {
   style: PropTypes.shape({}),
   subtitle: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
   swapDepth: PropTypes.number,
+  rowDirection: PropTypes.string.isRequired,
   swapFrom: PropTypes.number,
   swapLength: PropTypes.number,
   title: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),

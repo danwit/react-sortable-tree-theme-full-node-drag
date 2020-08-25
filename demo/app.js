@@ -151,8 +151,11 @@ class App extends Component {
                   matches.length > 0 ? searchFocusIndex % matches.length : 0,
               })
             }
+            rowDirection='ltr'
             canDrag={({ node }) => !node.dragDisabled}
             generateNodeProps={rowInfo => ({
+              listIndex: 0,
+              lowerSiblingCounts: [],
               buttons: [
                 <button onClick={() => alertNodeInfo(rowInfo)}>i</button>,
               ],
